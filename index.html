@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>「ポ」「プ」「テ」「ピ」「ッ」「ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するJavaScript</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        p#popuko {font-family: "ＭＳ Ｐゴシック",sans-serif; }
+	width:auto
+    </style>
+</head>
+<body>
+    <h1>日本語的に正しく「ポ」「プ」「テ」「ピ」「ッ」「ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するJavaScript</h1>
+<p>元祖ネタは<a href="https://renidentia991.bitbucket.io/pptp.html" target="_blank">こ↑こ↓</a></p>
+<p>元ネタは<a href="http://miyayuu.starfree.jp/pptp.htm">こ↓こ↑</a></p>
+  <p><a href="https://twitter.com/salty_7" target="_blank">元祖作者Twitter</a></p>
+    <p><a href="https://twitter.com/yuu1111main" target="_blank">改変版元作者のTwitter</a></p>
+    <p><a href="https://twitter.com/toliner_" target="_blank">これの作者のTwitter</a></p>
+  <p>スクロールくらい自分お願い。はーと&#9825;</p>
+    <p>リセット＝F5</p>
+    <button id='bkb'>クリックしてね！</button>
+    <p id='pipimi'>ここに結果が表示されるよ！</p>
+    <p id='popuko'></p>
+    <script>
+        const team = ['ポ', 'プ', 'テ', 'ピ','ッ','ク'];
+        // ↓この辺最高に汚い
+        const take = '\
+　　　　　　　　　　　　　　　　　　　　　　　　　-------　､　ｒへ------､ <br>\
+　　　　　　　　　　　　　　　　　　 ＿__､+\'\'"~　八 　　　　　~\'\'＜ つ　　　＼ <br>\
+　　　　　　　　　　　　　　 _､+\'\'"~　 ./ ,:　　　　＾ 　 丶　　　　　ヽく＿＿　∧ <br>\
+　　　　　　 , -r-　　　　 / 　 　 　 / / -､　　　　\'´￣!＼‘,　‘:,　 |　　　 ＼/ <br>\
+　　　　　／ .∧　　 ＼..ﾞ|/＿,,.｡*\'/ /|,\/＼＿_／^ヽ /,,_　`! 　 \',　| <br>\
+　　　 ／　　　∧　　　 ＼　〈〉.　,　.|　ｙ\'\'"ヽ______ 7´⌒ヽ _|　　ト;′ <br>\
+　　 〈　　　　　 ∧ （竹） .∨...　｜｜ ,r　ヽ 三三/　　‘:, Y!　 .|,′ <br>\
+　　　∨ 　 　 　 ∧　　　　∨...　|　.|八 °,!三三{.　° ﾉ 八　/---､ <br>\
+.　　　 ∨ 　 　 　 ∧　　　　∨....∨（.＾ 　　 ､_,､_, \`　　　,.ｨ^!./＿　　\', <br>\
+　　　　 ∨　　 ／三ﾐメ、　　∨　冫≧=‐------‐ｧ=≦/ .|/　　 } 　 ! <br>\
+.　　　 　 ∨三三三三圦__.＼＼/　＼|ｲ `\'\'＜:＼/:::::／　　|　　（＿__） <br>\
+　　　 〈〉　　 ノ　ゞ三ｼ.　＼　＼;　　 { /　　　 ｀¨ﾍ⌒こフ　.∨ 〔､､､_） <br>\
+　　　　　　　）　　　 　 　 　 ＼八　　`^i､_ __　　　 ＼＼　　 .∨ ｀¨´ <br>\
+　　　　 ＜ﾍ＿/三＼＿／｜＼､.＼　/::/　 ）　　　　 `\'´　＿ ,∨､ <br>\
+　　　　|＼三三三三:／　　|.　　＼/^ゞク≦---‐=≦::::::「:::::::::|::::/ <br>\
+　　　　　　　　 　 　 　 　 　 　 　 /:::::::/:::::::/:::::::::;′:::::::::|::::::::::|:人<br>\
+happy end!!\n\
+';
+
+        function pptp(){
+            const pipimi = document.getElementById('pipimi');
+            pipimi.textContent = '';
+            const popuko = document.getElementById('popuko');
+            popuko.textContent = '';
+            var pop = setInterval(function(){
+                let next = team[getRandomInt(0, 5)];
+                while(pipimi.textContent.substr(pipimi.textContent.length - 1) === 'ッ' && next === 'ッ') {
+                    next = team[getRandomInt(0, 5)];
+                }
+                pipimi.textContent += next
+                if(pipimi.textContent.endsWith('ポプテピピック')){
+                    clearInterval(pop);
+                    popuko.innerHTML = take;
+                }
+            }, 10);
+        }
+
+        function getRandomInt(min, max){
+            return Math.floor( Math.random() * (max - min + 1) ) + min;
+        }
+
+        document.getElementById('bkb').addEventListener('click', pptp);
+    </script>
+</body>
+</html>
