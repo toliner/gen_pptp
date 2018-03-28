@@ -105,7 +105,8 @@ function pptp() {
             count.innerHTML += '\'ク\'の文字数:' + countChar(result, 'ク') + '<br>';
             popuko.innerHTML = take + kaisuu + '文字目だよ<br><a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、' + kaisuu + '文字目、' + time + 'で完成させました！(ポプテピピッまで完成した回数:' + poputepi2ltu + ')%20https://toliner.github.io/gen_pptp/&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>'　;
         }
-        window.scrollByLines(1);
+        // 最下部にスクロールする
+        document.documentElement.scrollTop = document.body.scrollHeight;
     }, 10);
 }
 
