@@ -42,6 +42,8 @@ function pptp() {
 
     let popuko = document.getElementById('popuko');
     let kekka = document.getElementById('kekka');
+    let button = document.getElementById('bkb');
+    button.disabled = true;
     popuko.textContent = '';
     let pop = setInterval(function () {
         now = new Date();
@@ -81,6 +83,7 @@ function pptp() {
             poputepi2ltu++;
         }
         if (pipimi.textContent.endsWith('ポプテピピック')) {
+            button.disabled = false;
             document.getElementById("bkb").style.visibility = "visible";
             clearInterval(pop);
             popuko.innerHTML = take + kaisuu + '文字目だよ<br><a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、' + kaisuu + '文字目、' + time + 'で完成させました！(ポプテピピッまで完成した回数:' + poputepi2ltu + ')%20http://miyayuu2.starfree.jp/urls/pptp2&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>'　;
