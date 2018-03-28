@@ -1,133 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <title>「ポ」「プ」「テ」「ピ」「ッ」「ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するJavaScript</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
-        p#popuko {font-family: "ＭＳ Ｐゴシック",sans-serif; }
-	body{
-	width:auto;
-	background-color: #CEE3F6;
-	color: #FA5882;
-}
+        p#popuko {
+            font-family: "ＭＳ Ｐゴシック", sans-serif;
+        }
 
+        body {
+            width: auto;
+            background-color: #CEE3F6;
+            color: #FA5882;
+        }
     </style>
+    <script src="pptp.js"></script>
 </head>
 <body>
     <h1>「ポ」「プ」「テ」「ピ」「ッ」「ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するJS(女子小学生じゃないよ？)</h1>
-<p>元ネタは<a href="https://renidentia991.bitbucket.io/pptp.html">こ↑こ↓</a> <a href="https://twitter.com/salty_7">twitter</a></p>
-<p>元ネタを改造したやつは<a href="http://miyayuu.starfree.jp/pptp.htm">こ↑こ↓</a> <a href="https://twitter.com/yuu1111main">twitter</a></p>
-<p>ッが被らないようにした人は<a href="https://toliner.github.io/gen_pptp/index.html">こ↑こ↓</a> <a href="https://twitter.com/toliner_">twitter</a></p>
-<p>クリックしてねを何回も押すとバグが発生するのを発見した人のtwitterは<a href="https://twitter.com/0505Keitan">こ↑こ↓</a></p>
-<p>そしてこれになりました <a href="https://twitter.com/yuu1111main">twitter</a>←おもしろいと思ったら<a href="https://twitter.com/yuu1111main?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @yuu1111main</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
-<p>スクロールはセルフサービス<font size="1">(やり方がよくわからないなんて言えない)</font></p>
+<p>元ネタは<a href="https://renidentia991.bitbucket.io/pptp.html ">こ↑こ↓</a> <a href="https://twitter.com/salty_7 ">twitter</a></p>
+<p>元ネタを改造したやつは<a href="http://miyayuu.starfree.jp/pptp.htm ">こ↑こ↓</a> <a href="https://twitter.com/yuu1111main ">twitter</a></p>
+<p>ッが被らないようにした人は<a href="https://toliner.github.io/gen_pptp/index.html ">こ↑こ↓</a> <a href="https://twitter.com/toliner_ ">twitter</a></p>
+<p>クリックしてねを何回も押すとバグが発生するのを発見した人のtwitterは<a href="https://twitter.com/0505Keitan ">こ↑こ↓</a></p>
+<p>そしてこれになりました <a href="https://twitter.com/yuu1111main ">twitter</a>←おもしろいと思ったら<a href="https://twitter.com/yuu1111main?ref_src=twsrc%5Etfw
+        " class="twitter-follow-button " data-show-count="false ">Follow @yuu1111main</a><script async src="https://platform.twitter.com/widgets.js
+        " charset="utf-8 "></script></p>
+<p>スクロールはセルフサービス<font size="1 ">(やり方がよくわからないなんて言えない)</font></p>
 <hr>
     <p>リセット＝F5</p>
-    <button id='bkb'>クリックしてね！</button>
+    <button id='bkb' onclick="pptp()">クリックしてね！</button>
     <p id='pipimi'>ここに結果が表示されるよ！</p>
     <p id='popuko'></p>
 <h3>もちろん完成するまでやるよね？(シェアボタンがあるから最後までやってほしい(切実))</h3>
 <p id='kekka'></p>
-    <script>
-	var kaisuu=0;
-	var pu=0;
-	var te=0;
-	var pi=0;
-	var pi2=0;
-	var ltu=0;
-var start = new Date();
-var hour = 0;
-var min = 0;
-var sec = 0;
-var now = 0;
-var datet = 0;
-var time;
-      const team = ['ポ', 'プ', 'テ', 'ピ','ッ','ク'];
-	const team2 = ['ポ', 'プ', 'テ', 'ピ','ク'];
-        // ↓この辺最高に汚い
-        const take = '\
-　　　　　　　　　　　　　　　　　　　　　　　　　-------　､　ｒへ------､ <br>\
-　　　　　　　　　　　　　　　　　　 ＿__､+\'\'"~　八 　　　　　~\'\'＜ つ　　　＼ <br>\
-　　　　　　　　　　　　　　 _､+\'\'"~　 ./ ,:　　　　＾ 　 丶　　　　　ヽく＿＿　∧ <br>\
-　　　　　　 , -r-　　　　 / 　 　 　 / / -､　　　　\'´￣!＼‘,　‘:,　 |　　　 ＼/ <br>\
-　　　　　／ .∧　　 ＼..ﾞ|/＿,,.｡*\'/ /|,\/＼＿_／^ヽ /,,_　`! 　 \',　| <br>\
-　　　 ／　　　∧　　　 ＼　〈〉.　,　.|　ｙ\'\'"ヽ______ 7´⌒ヽ _|　　ト;′ <br>\
-　　 〈　　　　　 ∧ （竹） .∨...　｜｜ ,r　ヽ 三三/　　‘:, Y!　 .|,′ <br>\
-　　　∨ 　 　 　 ∧　　　　∨...　|　.|八 °,!三三{.　° ﾉ 八　/---､ <br>\
-.　　　 ∨ 　 　 　 ∧　　　　∨....∨（.＾ 　　 ､_,､_, \`　　　,.ｨ^!./＿　　\', <br>\
-　　　　 ∨　　 ／三ﾐメ、　　∨　冫≧=‐------‐ｧ=≦/ .|/　　 } 　 ! <br>\
-.　　　 　 ∨三三三三圦__.＼＼/　＼|ｲ `\'\'＜:＼/:::::／　　|　　（＿__） <br>\
-　　　 〈〉　　 ノ　ゞ三ｼ.　＼　＼;　　 { /　　　 ｀¨ﾍ⌒こフ　.∨ 〔､､､_） <br>\
-　　　　　　　）　　　 　 　 　 ＼八　　`^i､_ __　　　 ＼＼　　 .∨ ｀¨´ <br>\
-　　　　 ＜ﾍ＿/三＼＿／｜＼､.＼　/::/　 ）　　　　 `\'´　＿ ,∨､ <br>\
-　　　　|＼三三三三:／　　|.　　＼/^ゞク≦---‐=≦::::::「:::::::::|::::/ <br>\
-　　　　　　　　 　 　 　 　 　 　 　 /:::::::/:::::::/:::::::::;′:::::::::|::::::::::|:人<br>\
-happy end!!\n\
-'
-;
-
-        function pptp(){
-
-
-
-
-	document.getElementById("bkb").style.visibility = "hidden";
-            var pipimi = document.getElementById('pipimi');
-            pipimi.textContent = '';
-		
-            var popuko = document.getElementById('popuko');
-	var kekka = document.getElementById('kekka');
-            popuko.textContent = '';
-            var pop = setInterval(function(){
-now = new Date();
-	datet = parseInt((now.getTime() - start.getTime()) / 1000);
-
-	hour = parseInt(datet / 3600);
-	min = parseInt((datet / 60) % 60);
-	sec = datet % 60;
-
-	// 数値が1桁の場合、頭に0を付けて2桁で表示する指定
-	if(hour < 10) { hour = "0" + hour; }
-	if(min < 10) { min = "0" + min; }
-	if(sec < 10) { sec = "0" + sec; }
-	var time = hour + '時間' + min + '分' + sec + '秒'; // パターン2
-	kaisuu++;
-		if(pipimi.textContent.endsWith('ッ')){
-                pipimi.textContent += team2[getRandomInt(0, 4)];;
-}else{
-pipimi.textContent += team[getRandomInt(0, 5)];;
-}
-kekka.innerHTML = 'ポプが出来た回数:'+pu+'<br>ポプテ出来た回数:'+te+'<br>ポプテピ出来た回数:'+pi+'<br>ポプテピピ出来た回数:'+pi2+'<br>ポプテピピッ出来た回数:'+ltu+'<br>経過時間:'+time
-;
-
-                if(pipimi.textContent.endsWith('ポプ')){
-		pu++;
-                }
-                if(pipimi.textContent.endsWith('ポプテ')){
-		te++;
-                }
-                if(pipimi.textContent.endsWith('ポプテピ')){
-		pi++;
-                }
-                if(pipimi.textContent.endsWith('ポプテピピ')){
-		pi2++;
-                }
-                if(pipimi.textContent.endsWith('ポプテピピッ')){
-		ltu++;
-                }
-                if(pipimi.textContent.endsWith('ポプテピピック')){
-document.getElementById("bkb").style.visibility = "visible";
-                    clearInterval(pop);
-                    popuko.innerHTML = take + kaisuu +'文字目だよ<br><a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、'+ kaisuu+'文字目、'+time+'で完成させました！(ポプテピピッまで完成した回数:'+ltu+')%20http://miyayuu2.starfree.jp/urls/pptp2&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>'　;
-                }
-            }, 10);
-        }
-
-        function getRandomInt(min, max){
-            return Math.floor( Math.random() * (max - min + 1) ) + min;
-        }
-
-        document.getElementById('bkb').addEventListener('click', pptp);
-    </script>
 </body>
 </html>
