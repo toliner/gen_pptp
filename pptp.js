@@ -88,6 +88,7 @@ function pptp() {
             clearInterval(pop);
             let result = pipimi.textContent;
             let count = document.getElementById("count");
+            count.innerHTML = ''
             count.innerHTML += '\'ポ\'の文字数:' + countChar(result, 'ポ') + '<br>';
             count.innerHTML += '\'プ\'の文字数:' + countChar(result, 'プ') + '<br>';
             count.innerHTML += '\'テ\'の文字数:' + countChar(result, 'テ') + '<br>';
