@@ -60,7 +60,7 @@ function pptp() {
         min = parseInt((datet / 60) % 60);
         sec = datet % 60;
 
-        const time = `${('00' + hour).slice(-2)}時間${('00' + min).slice(-2)}分${('00' + sec).slice(-2)}秒`; // パターン2
+        const time = `${toZeroPadString(hour, 2)}時間${toZeroPadString(min, 2)}分${toZeroPadString(sec, 2)}秒`; // パターン2
         count++;
         if (pipimi.textContent.endsWith('ッ')) {
             pipimi.textContent += team2[getRandomInt(0, 4)];;
@@ -106,6 +106,10 @@ function pptp() {
         document.documentElement.scrollTop = document.body.scrollHeight;
     };
     requestAnimationFrame(pop);
+}
+
+function toZeroPadString(num, padCount) {
+    return String(num).padStart(padCount, '0');
 }
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
