@@ -37,13 +37,13 @@ happy end!!\n\
 
 function pptp() {
     document.getElementById("bkb").style.visibility = "hidden";
-    var pipimi = document.getElementById('pipimi');
+    let pipimi = document.getElementById('pipimi');
     pipimi.textContent = '';
 
-    var popuko = document.getElementById('popuko');
-    var kekka = document.getElementById('kekka');
+    let popuko = document.getElementById('popuko');
+    let kekka = document.getElementById('kekka');
     popuko.textContent = '';
-    var pop = setInterval(function () {
+    let pop = setInterval(function () {
         now = new Date();
         datet = parseInt((now.getTime() - start.getTime()) / 1000);
 
@@ -55,7 +55,7 @@ function pptp() {
         if (hour < 10) { hour = "0" + hour; }
         if (min < 10) { min = "0" + min; }
         if (sec < 10) { sec = "0" + sec; }
-        var time = hour + '時間' + min + '分' + sec + '秒'; // パターン2
+        let time = hour + '時間' + min + '分' + sec + '秒'; // パターン2
         kaisuu++;
         if (pipimi.textContent.endsWith('ッ')) {
             pipimi.textContent += team2[getRandomInt(0, 4)];;
