@@ -1,9 +1,9 @@
 var kaisuu = 0;
-var pu = 0;
-var te = 0;
-var pi = 0;
-var pi2 = 0;
-var ltu = 0;
+var popu = 0;
+var popute = 0;
+var poputepi = 0;
+var poputepi2 = 0;
+var poputepi2ltu = 0;
 var start = new Date();
 var hour = 0;
 var min = 0;
@@ -62,28 +62,28 @@ function pptp() {
         } else {
             pipimi.textContent += team[getRandomInt(0, 5)];;
         }
-        kekka.innerHTML = 'ポプが出来た回数:' + pu + '<br>ポプテ出来た回数:' + te + '<br>ポプテピ出来た回数:' + pi + '<br>ポプテピピ出来た回数:' + pi2 + '<br>ポプテピピッ出来た回数:' + ltu + '<br>経過時間:' + time
+        kekka.innerHTML = 'ポプが出来た回数:' + popu + '<br>ポプテ出来た回数:' + popute + '<br>ポプテピ出来た回数:' + poputepi + '<br>ポプテピピ出来た回数:' + poputepi2 + '<br>ポプテピピッ出来た回数:' + poputepi2ltu + '<br>経過時間:' + time
             ;
 
         if (pipimi.textContent.endsWith('ポプ')) {
-            pu++;
+            popu++;
         }
         if (pipimi.textContent.endsWith('ポプテ')) {
-            te++;
+            popute++;
         }
         if (pipimi.textContent.endsWith('ポプテピ')) {
-            pi++;
+            poputepi++;
         }
         if (pipimi.textContent.endsWith('ポプテピピ')) {
-            pi2++;
+            poputepi2++;
         }
         if (pipimi.textContent.endsWith('ポプテピピッ')) {
-            ltu++;
+            poputepi2ltu++;
         }
         if (pipimi.textContent.endsWith('ポプテピピック')) {
             document.getElementById("bkb").style.visibility = "visible";
             clearInterval(pop);
-            popuko.innerHTML = take + kaisuu + '文字目だよ<br><a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、' + kaisuu + '文字目、' + time + 'で完成させました！(ポプテピピッまで完成した回数:' + ltu + ')%20http://miyayuu2.starfree.jp/urls/pptp2&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>'　;
+            popuko.innerHTML = take + kaisuu + '文字目だよ<br><a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、' + kaisuu + '文字目、' + time + 'で完成させました！(ポプテピピッまで完成した回数:' + poputepi2ltu + ')%20http://miyayuu2.starfree.jp/urls/pptp2&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>'　;
         }
         window.scrollByLines(1);
     }, 10);
