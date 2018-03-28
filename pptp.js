@@ -85,6 +85,7 @@ function pptp() {
             clearInterval(pop);
             popuko.innerHTML = take + kaisuu + '文字目だよ<br><a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、' + kaisuu + '文字目、' + time + 'で完成させました！(ポプテピピッまで完成した回数:' + ltu + ')%20http://miyayuu2.starfree.jp/urls/pptp2&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>'　;
         }
+        window.scrollByLines(1);
     }, 10);
 }
 
