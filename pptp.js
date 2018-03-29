@@ -21,26 +21,34 @@ let datet = 0;
 let time;
 const team = ['ポ', 'プ', 'テ', 'ピ', 'ッ', 'ク'];
 const team2 = ['ポ', 'プ', 'テ', 'ピ', 'ク'];
-// ↓この辺最高に汚いのを少しマシにしたけどまだ汚い
-const take = `
-　　　　　　　　　　　　　　　　　　　　　　　　　-------　､　ｒへ------､
-　　　　　　　　　　　　　　　　　　 ＿__､+''"~　八 　　　　　~''＜ つ　　　＼
-　　　　　　　　　　　　　　 _､+''"~　 ./ ,:　　　　＾ 　 丶　　　　　ヽく＿＿　∧
-　　　　　　 , -r-　　　　 / 　 　 　 / / -､　　　　'´￣!＼‘,　‘:,　 |　　　 ＼/
-　　　　　／ .∧　　 ＼..ﾞ|/＿,,.｡*'/ /|,\/＼＿_／^ヽ /,,_　\`! 　 ',　|
-　　　 ／　　　∧　　　 ＼　〈〉.　,　.|　ｙ''"ヽ______ 7´⌒ヽ _|　　ト;′
-　　 〈　　　　　 ∧ （竹） .∨...　｜｜ ,r　ヽ 三三/　　‘:, Y!　 .|,′
-　　　∨ 　 　 　 ∧　　　　∨...　|　.|八 °,!三三{.　° ﾉ 八　/---､
-.　　　 ∨ 　 　 　 ∧　　　　∨....∨（.＾ 　　 ､_,､_, \`　　　,.ｨ^!./＿　　',
-　　　　 ∨　　 ／三ﾐメ、　　∨　冫≧=‐------‐ｧ=≦/ .|/　　 } 　 !
-.　　　 　 ∨三三三三圦__.＼＼/　＼|ｲ \`''＜:＼/:::::／　　|　　（＿__）
-　　　 〈〉　　 ノ　ゞ三ｼ.　＼　＼;　　 { /　　　 ｀¨ﾍ⌒こフ　.∨ 〔､､､_）
-　　　　　　　）　　　 　 　 　 ＼八　　\`^i､_ __　　　 ＼＼　　 .∨ ｀¨´
-　　　　 ＜ﾍ＿/三＼＿／｜＼､.＼　/::/　 ）　　　　 \`'´　＿ ,∨､
-　　　　|＼三三三三:／　　|.　　＼/^ゞク≦---‐=≦::::::「:::::::::|::::/
-　　　　　　　　 　 　 　 　 　 　 　 /:::::::/:::::::/:::::::::;′:::::::::|::::::::::|:人
-happy end!!
-`.replace('\n', '<br>');
+//よく分からんのでとりあえず即時関数
+const take = (() => {
+    const aa = [
+        '　　　　　　　　　　　　　　　　　　　　　　　　　-------　､　ｒへ------､',
+        '　　　　　　　　　　　　　　　　　　 ＿__､+\'\'"~　八 　　　　　~\'\'＜ つ　　　＼',
+        '　　　　　　　　　　　　　　 _､+\'\'"~　 ./ ,:　　　　＾ 　 丶　　　　　ヽく＿＿　∧',
+        '　　　　　　 , -r-　　　　 / 　 　 　 / / -､　　　　\'´￣!＼‘,　‘:,　 |　　　 ＼/',
+        '　　　　　／ .∧　　 ＼..ﾞ|/＿,,.｡*\'/ /|,/＼＿_／^ヽ /,,_　`! 　 \',　|',
+        '　　　 ／　　　∧　　　 ＼　〈〉.　,　.|　ｙ\'\'"ヽ______ 7´⌒ヽ _|　　ト;′',
+        '　　 〈　　　　　 ∧ （竹） .∨...　｜｜ ,r　ヽ 三三/　　‘:, Y!　 .|,′',
+        '　　　∨ 　 　 　 ∧　　　　∨...　|　.|八 °,!三三{.　° ﾉ 八　/---､',
+        '.　　　 ∨ 　 　 　 ∧　　　　∨....∨（.＾ 　　 ､_,､_, `　　　,.ｨ^!./＿　　\',',
+        '　　　　 ∨　　 ／三ﾐメ、　　∨　冫≧=‐------‐ｧ=≦/ .|/　　 } 　 !',
+        '.　　　 　 ∨三三三三圦__.＼＼/　＼|ｲ `\'\'＜:＼/:::::／　　|　　（＿__）',
+        '　　　 〈〉　　 ノ　ゞ三ｼ.　＼　＼;　　 { /　　　 ｀¨ﾍ⌒こフ　.∨ 〔､､､_）',
+        '　　　　　　　）　　　 　 　 　 ＼八　　`^i､_ __　　　 ＼＼　　 .∨ ｀¨´',
+        '　　　　 ＜ﾍ＿/三＼＿／｜＼､.＼　/::/　 ）　　　　 \`\'´　＿ ,∨､',
+        '　　　　|＼三三三三:／　　|.　　＼/^ゞク≦---‐=≦::::::「:::::::::|::::/',
+        '　　　　　　　　 　 　 　 　 　 　 　 /:::::::/:::::::/:::::::::;′:::::::::|::::::::::|:人',
+        'happy end!! '
+    ];
+    let take_temp = ''
+    aa.forEach((value) => {
+        take_temp += value;
+        take_temp += '<br>'
+    })
+    return take_temp;
+})()
 
 function pptp() {
     const pipimi = document.getElementById('pipimi');
@@ -67,13 +75,13 @@ function pptp() {
         } else {
             pipimi.textContent += team[getRandomInt(0, 5)];;
         }
-        result.innerHTML = `ポプが出来た回数:${popu}
-ポプテが出来た回数:${popute}
-ポプテピが出来た回数:${poputepi}
-ポプテピピが出来た回数:${poputepi2}
-ポプテピピッが出来た回数:${poputepi2ltu}
-経過時間:${time}
-`.replace('\n', '<br>');
+        result.innerHTML = `ポプが出来た回数:${popu}<br>
+ポプテが出来た回数:${popute}<br>
+ポプテピが出来た回数:${poputepi}<br>
+ポプテピピが出来た回数:${poputepi2}<br>
+ポプテピピッが出来た回数:${poputepi2ltu}<br>
+経過時間:${time}<br>
+`;
 
         if (pipimi.textContent.endsWith('ポプ')) {
             popu++;
@@ -96,9 +104,9 @@ function pptp() {
             clearInterval(pop);
             const text = pipimi.textContent;
             const count = document.getElementById('count');
-            count.innerHTML = team.reduce((prev, x) => `${prev ? `${prev}\n` : ''}'${x}'の文字数:${countChar(text, x)}`);
-            popuko.innerHTML = `${take}${count}文字目だよ
-<a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、${count}文字目、${time}で完成させました！(ポプテピピッまで完成した回数:${poputepi2ltu}%20https://toliner.github.io/gen_pptp/&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>`.replace('\n', '<br>');
+            count.innerHTML = team.reduce((prev, x) => `${prev ? `${prev}` : ''}'${x}'の文字数:${countChar(text, x)} <br>`);
+            popuko.innerHTML = `${take}<br>${count.textContent}文字目だよ <br>
+<a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、${count.textContent}文字目、${time}で完成させました！(ポプテピピッまで完成した回数:${poputepi2ltu}%20https://toliner.github.io/gen_pptp/&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>`.replace('\n', '<br>');
         } else {
             requestAnimationFrame(pop);
         }
