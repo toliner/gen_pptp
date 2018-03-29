@@ -60,6 +60,7 @@ function pptp() {
     const button = document.getElementById('bkb');
     button.style.visibility = 'hidden';
     button.disabled = true;
+    xor.seed((new Date()).value)
     const pop = () => {
         now = new Date();
         datet = parseInt((now.getTime() - start.getTime()) / 1000);
@@ -71,9 +72,9 @@ function pptp() {
         const time = `${toZeroPadString(hour, 2)}時間${toZeroPadString(min, 2)}分${toZeroPadString(sec, 2)}秒`; // パターン2
         count++;
         if (pipimi.textContent.endsWith('ッ')) {
-            pipimi.textContent += team2[getRandomInt(0, 4)];;
+            pipimi.textContent += team2[getRandomInt(4)];;
         } else {
-            pipimi.textContent += team[getRandomInt(0, 5)];;
+            pipimi.textContent += team[getRandomInt(5)];;
         }
         result.innerHTML = `ポプが出来た回数:${popu}<br>
 ポプテが出来た回数:${popute}<br>
@@ -120,6 +121,27 @@ function toZeroPadString(num, padCount) {
     return String(num).padStart(padCount, '0');
 }
 
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const getRandomInt = (max) => {
+    const val = xor.rand() % max
+    return val < 0 ? -val : val;
+}
 
 const countChar = (str, seq) => str.split(seq).length - 1;
+
+xor = {
+    x: 123456789,
+    y: 362436069,
+    z: 521288629,
+    w: 88675123
+};
+
+xor.seed = function (s) {
+    xor.w = s;
+}
+xor.rand = function () {
+    var t = xor.x ^ (xor.x << 11);
+    xor.x = xor.y;
+    xor.y = xor.z;
+    xor.z = xor.w;
+    return xor.w = (xor.w ^ (xor.w >>> 19)) ^ (t ^ (t >>> 8));
+}
