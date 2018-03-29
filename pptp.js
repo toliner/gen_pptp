@@ -40,7 +40,7 @@ const take = `
 　　　　|＼三三三三:／　　|.　　＼/^ゞク≦---‐=≦::::::「:::::::::|::::/
 　　　　　　　　 　 　 　 　 　 　 　 /:::::::/:::::::/:::::::::;′:::::::::|::::::::::|:人
 happy end!!
-`;
+`.replace('\n', '<br>');
 
 function pptp() {
     const pipimi = document.getElementById('pipimi');
@@ -73,7 +73,7 @@ function pptp() {
 ポプテピピが出来た回数:${poputepi2}
 ポプテピピッが出来た回数:${poputepi2ltu}
 経過時間:${time}
-`;
+`.replace('\n', '<br>');
 
         if (pipimi.textContent.endsWith('ポプ')) {
             popu++;
@@ -98,7 +98,7 @@ function pptp() {
             const count = document.getElementById('count');
             count.innerHTML = team.reduce((prev, x) => `${prev ? `${prev}\n` : ''}'${x}'の文字数:${countChar(text, x)}`);
             popuko.innerHTML = `${take}${count}文字目だよ
-<a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、${count}文字目、${time}で完成させました！(ポプテピピッまで完成した回数:${poputepi2ltu}%20https://toliner.github.io/gen_pptp/&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>`;
+<a href="https://twitter.com/share?text=「ポ・プ・テ・ピ・ッ・ク」をランダムに出力して「ポプテピピック」が完成したら竹●房を破壊するやつを、${count}文字目、${time}で完成させました！(ポプテピピッまで完成した回数:${poputepi2ltu}%20https://toliner.github.io/gen_pptp/&hashtags=ポプテの破壊するJS" target="_blank">Twitterでシェアする</a>`.replace('\n', '<br>');
         } else {
             requestAnimationFrame(pop);
         }
