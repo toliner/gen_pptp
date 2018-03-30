@@ -139,7 +139,7 @@ xor.seed = function (s) {
     xor.w = s;
 }
 xor.rand = function () {
-    var t = xor.x ^ (xor.x << 11);
+    let t = xor.x ^ (xor.x << 11);
     xor.x = xor.y;
     xor.y = xor.z;
     xor.z = xor.w;
