@@ -72,9 +72,9 @@ function pptp() {
         const time = `${toZeroPadString(hour, 2)}時間${toZeroPadString(min, 2)}分${toZeroPadString(sec, 2)}秒`; // パターン2
         count++;
         if (pipimi.textContent.endsWith('ッ')) {
-            pipimi.textContent += team2[getRandomInt(4)];;
+            pipimi.textContent += team2[getRandomInt(5)];;
         } else {
-            pipimi.textContent += team[getRandomInt(5)];;
+            pipimi.textContent += team[getRandomInt(6)];;
         }
         result.innerHTML = `ポプが出来た回数:${popu}<br>
 ポプテが出来た回数:${popute}<br>
