@@ -60,7 +60,7 @@ function pptp() {
     const button = document.getElementById('bkb');
     button.style.visibility = 'hidden';
     button.disabled = true;
-    xor.seed((new Date()).value)
+    xor.seed(Date.now())
     const pop = () => {
         now = new Date();
         datet = parseInt((now.getTime() - start.getTime()) / 1000);
